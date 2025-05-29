@@ -1,0 +1,17 @@
+name: required reviews
+on:
+  pull_request_review:
+  pull_request:
+    types: [ opened, reopened, synchronize, ready_for_review ]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
+    steps:
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+    - uses: Automattic/action-required-review@0e09302b1fc47ebfa1376673691861f66e1987a5 # v4.1.0
+      with:
+        requirements-file: .github/required-reviewers.yaml
+        fail: true
+        request-reviews: true
+        token: ${{ secrets.GH_ACTION_REQUIRED_REVIEWERS }}
