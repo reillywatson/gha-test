@@ -14,4 +14,4 @@ jobs:
         requirements-file: .github/required-reviewers.yaml
         fail: true
         request-reviews: true
-        token: ${{ secrets.GH_ACTION_REQUIRED_REVIEWERS }}
+        token: ${{ secrets.GITHUB_TOKEN }}
