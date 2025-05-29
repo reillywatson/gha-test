@@ -1,5 +1,6 @@
 - name: CI & Build pipelines
   paths:
     - '.github/**'
+    - 'foo'
   teams:
     - @reillywatson
