@@ -6,7 +6,7 @@ on:
 jobs:
   check:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.draft == false && github.event.review.state != 'commented'
+    if: github.event.pull_request.draft == false && github.event.review.state != 'commented' && github.event.review.state != 'changes_requested'
     steps:
     - name: Dump GitHub context
       env:
